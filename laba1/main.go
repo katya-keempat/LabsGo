@@ -1,56 +1,45 @@
 package main
 
 import (
-	"errors"
 	"fmt"
 	"time"
 )
 
-// Не совсем точная постановка задачи касательно времени и даты
 func main() {
-	//region #1 Exercise
+	//region #1 задания
 
-	//current_date
-	fmt.Println("current date:")
-	fmt.Println()
-
-	//current_time
-	fmt.Println("current time:")
-	fmt.Println(time.Time.Clock(time.Now()))
-
-	//date + time
-	fmt.Println("current date + time:")
+	// дата + время
+	fmt.Println("Дата и время:")
 	fmt.Println(time.Now().Local().Format(time.RFC1123))
 
-	//region #2-3 Exercise
-	someInt, someFloat64, someString, someBool := 13, 12.28, "nigger", false
-	fmt.Println(someInt, someFloat64, someString, someBool)
+	//region #2-3 задания
+	someInt, someFloat64, someString, someBool := 13, 12.28, "Katushka", false
+	fmt.Println(someInt, someFloat64, someString, someBool) // создание переменных
 
-	//region #4-5 Exercise
-	val1, _ := doSomeOperation(3, 2, "+")
+	//region #4-5 задания
+	val1 := doSomeOperation(3, 2, "+") // операции
 	fmt.Println(val1)
 
-	val2, _ := doSomeOperation(3, 2, "-")
+	val2 := doSomeOperation(3, 2, "-")
 	fmt.Println(val2)
 
-	val3, _ := doSomeOperation(3, 2, "*")
+	val3 := doSomeOperation(3, 2, "*")
 	fmt.Println(val3)
 
-	val4, err := doSomeOperation(3, 2, "/")
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
-	fmt.Println(val4)
+	val4 := doSomeOperation(3, 2, "/")
+	
+	fmt.Println(val4)   //4задание
 
-	//Проверка на ноль, могу сделать return, но прервёт выполнение кода
-	val5, err := doSomeOperation(3, 0, "/")
-	if err != nil {
-		fmt.Println(err)
-	}
+	//Проверка на ноль
+	val5 := doSomeOperation(3, 0, "/")
+
 	fmt.Println(val5)
 
-	//region #6 Exercise
+	// #5
+	sum1, vc1 := Katushka(3.0, 1.8)
+	fmt.Println(sum1, vc1)
+
+	//region #6 задание
 
 	var num1 int
 	fmt.Scanln(&num1)
@@ -64,20 +53,24 @@ func main() {
 	fmt.Println(float64(num1+num2+num3) / 3)
 }
 
-func doSomeOperation(num1, num2 int, opertaion string) (float64, error) {
+func doSomeOperation(num1, num2 int, opertaion string) (float64) {
 	switch opertaion {
 	case "-":
-		return float64(num1 - num2), nil
+		return float64(num1 - num2)
 	case "+":
-		return float64(num1 + num2), nil
+		return float64(num1 + num2)
 	case "*":
-		return float64(num1 * num2), nil
+		return float64(num1 * num2)
 	case "/":
 		if num2 != 0 {
-			return float64(num1) / float64(num2), nil
+			return float64(num1) / float64(num2)
 		}
-		return -1, errors.New("не дели на 0")
+		return -1
 	}
 
-	return -1, errors.New("что-то пошло не так")
+	return -1
+}
+
+func Katushka(num1, num2 float64) (float64, float64) {
+	return num1 + num2, num1 - num2
 }
