@@ -7,7 +7,6 @@ import (
 )
 
 // Не совсем точная постановка задачи касательно времени и даты
-// ,fdfgddf
 func main() {
 	//region #1 Exercise
 
