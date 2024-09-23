@@ -31,7 +31,6 @@ func main() {
 	//region #6 задание
 	//Принимает любое количество значений
 	avgNums(2, 3) 
-	avgNums(5, 6, 7)
 }
 
 func avgNums(num ...int) {
@@ -50,7 +49,7 @@ type Rectangle struct {
 }
 
 func (r Rectangle) GetRectanglePloshad() {
-	fmt.Println((float64(r.osnovanie) * float64(r.visota)) / 2)
+	fmt.Println((float64(r.osnovanie) * float64(r.visota)) )
 }     // вычисление площади
 
 // Русские символы считаются за 2 при обычном len
